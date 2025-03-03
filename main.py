@@ -138,25 +138,3 @@ print(f"AUC: {np.mean(cnn_auc_scores):.4f}")
 print(f"Precisión: {np.mean(cnn_precision_scores):.4f}")
 print(f"Recall: {np.mean(cnn_recall_scores):.4f}")
 print(f"F1-score: {np.mean(cnn_f1_scores):.4f}")
-
-
-# ----- Punto Extra: Deep CNN -----
-def create_deep_cnn_model():
-    model = models.Sequential([
-        layers.Input(shape=(128, 128, 3)),
-        layers.Conv2D(64, (3, 3), activation='relu'),
-        layers.MaxPooling2D((2, 2)),
-        layers.Conv2D(128, (3, 3), activation='relu'),
-        layers.MaxPooling2D((2, 2)),
-        layers.Conv2D(256, (3, 3), activation='relu'),
-        layers.MaxPooling2D((2, 2)),
-        layers.Conv2D(512, (3, 3), activation='relu'),
-        layers.MaxPooling2D((2, 2)),
-        layers.Flatten(),
-        layers.Dense(512, activation='relu'),
-        layers.Dense(1, activation='sigmoid')
-    ])
-    return model
-
-
-deep_cnn_model = create_deep_cnn_model()
